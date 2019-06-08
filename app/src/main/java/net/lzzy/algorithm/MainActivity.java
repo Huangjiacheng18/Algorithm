@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Integer[] items;
     private EditText edtItems;
     private TextView tvResult;
+    int a[]=new int[10];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +55,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void directSort() {
         //todo:直接选择排序的具体实现
+        for (int i=0;i<items.length-1;i++){
+            int minPos=i;
+            for (int j=i;j<items.length;j++){
+                if (items[minPos].compareTo(items[j])>0){
+                    minPos=j;
+                }
+            }
+            swap(minPos,i);
+        }
+    }
+    private void swap(int m,int n){
+        int tmp=items[m];
+        items[m]=items[n];
+        items[n]=tmp;
     }
 
     private void generateItems() {
@@ -61,6 +76,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Random generator = new Random();
         for (int i = 0; i < items.length; i++) {
             items[i] = generator.nextInt(99);
+            a[i]=i;
         }
     }
 }
