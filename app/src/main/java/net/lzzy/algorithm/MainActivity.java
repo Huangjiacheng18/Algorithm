@@ -60,11 +60,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             for (int j=i;j<items.length;j++){
                 if (items[minPos].compareTo(items[j])>0){
                     minPos=j;
-                    //.
-                    //00.0
                 }
             }
             swap(minPos,i);
+        }
+        //将第二个（B）数取出，并把全部数往后移一个位置，用第一个数(A)和第二个数(B)相比较,如果a>B,那么b就是当前最小数，有序区为R1（B）.R2（A）；
+        //将第三个数C取出，并把全部数往后移一个位置，用C于当前最小数依次到最大数进行比较，如果C>B且C小于A,那么C的位置为R2；
+    }
+    private void insertSort(){
+        for (int i=1;i<items.length;i++){
+            int j=i-1;
+            if (items[j].compareTo(items[i])<0) {
+                continue;
+            }
+            Integer tmp=items[i];
+            while (j>=0&&items[j].compareTo(tmp)>0){
+                items[j+1]=items[j];
+                j--;
+            }
+            items[j+i]=tmp;
         }
     }
     private void swap(int m,int n){
