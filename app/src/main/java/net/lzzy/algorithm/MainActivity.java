@@ -66,6 +66,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
     private void insertSort(){
+        //0000
         for (int i=1;i<items.length;i++){
             int j=i-1;
             if (items[j].compareTo(items[i])<0) {
