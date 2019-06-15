@@ -9,6 +9,11 @@ public class DirectSort<T extends Comparable<T>>extends BaseSort<T>{
         super(items);
     }
 
+    @Override
+    void sort() {
+
+    }
+
 
 //    private Integer[] items;
 //    private long dureation;
