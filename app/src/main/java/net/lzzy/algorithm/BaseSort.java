@@ -8,56 +8,67 @@ import java.util.List;
  * Created by lzzy_gxy on 2019/6/15.
  * Description:
  */
-public abstract class BaseSort<T extends Comparable<T>> {
+public  abstract class BaseSort<T extends Comparable<?super T>> {
 
-//     Integer[] items;
     T[] items;
-     long duration;
-    private int compareCount;
-    private int swapCount;
-     int moveStep;
+    long duration;//运行时间
+    private int compareCount;//对比次数
+    private int swapCount;//移动次数
+    int moveStep;//交换次数
 
-    BaseSort(T[] items){
-        this.items=items;
-        compareCount=0;
-        swapCount=0;
-        moveStep=0;
+    //endregi
+    BaseSort(T[] items) {
+        this.items = items;
+        compareCount = 0;
+        duration=0;
+        swapCount = 0;
+        moveStep = 0;
     }
 
-    boolean bigger(T a,T b){
+    boolean bigger(T a, T b) {
         compareCount++;
-        return a.compareTo(b)>0;
+        return a.compareTo(b) > 0;
     }
 
-     void swap(int i,int j){
-        T tmp=items[i];
-        items[i]=items[j];
-        items[j]=tmp;
+    void swap(int i, int j){
+        T num=(T)items[i];
+        items[i] = items[j];
+        items[j] = num;
         swapCount++;
     }
 
-    private String getResult() {
-        String display = "";
-        for (T i : items) {
-            display = display.concat(i + ",");
-        }
-        return display.substring(0,display.length());
-    }
-
-    public void sortWithTime(){
+    public void sortwithtime(){
         long start=System.currentTimeMillis();
-        sortWithTime();
-        duration = System.currentTimeMillis()-start;
+        sortwithtime();
+        duration=System.currentTimeMillis()-start;
+
     }
 
     abstract void sort();
 
-    public long getDuration(){return duration;}
+    public long getDuration () {
+        return duration;
+    }
 
-    public int getCompareCount(){return compareCount;}
+    public int getCompareCount () {
+        return compareCount;
+    }
 
-    public int getSwapCount(){return swapCount;}
+    public int getSwapCount() {
+        return swapCount;
+    }
 
-    public int getMoveStep(){return moveStep;}
-    //0.0.0.0.0
+    public int getMoveStep() {
+        return moveStep;
+    }
+
+    public String getResult(){
+        String display=" ";
+        for (T i:items) {
+            display=display.concat(i+",");
+        }
+        display=display.substring(0,display.length()-1);
+        return display;
+    }
 }
+
