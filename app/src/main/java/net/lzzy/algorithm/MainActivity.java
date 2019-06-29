@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         initViews();
         initSpinner();
     }
+    //00.0.0.
     private void initSpinner(){
         spinner=findViewById(R.id.activity_main_sp);
         String[]names={"选择排序","直接选择排序","希尔排序"};
