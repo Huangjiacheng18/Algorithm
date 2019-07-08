@@ -1,17 +1,15 @@
-package net.lzzy.algorithm;
+package net.lzzy.algorithm.algorlib;
 
-/**
- * Created by lzzy_gxy on 2019/6/20.
- * Description:
- */
+
 public class BubbleSlrt <T extends Comparable<? super T>>extends BaseSort<T>{
+
+    @Override
+    void Sort() {
+
+    }
 
     BubbleSlrt(T[] items) {
         super(items);
     }
 
-    @Override
-    void sort() {
-
-    }
 }
